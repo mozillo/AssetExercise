@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @asset_manage.brand %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @asset_manage.category %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @asset_manage.model %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @asset_manage.owner_id %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @asset_manage.producer %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @asset_manage.product %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @asset_manage.price %>
+</p>
+
+<p>
+  <strong>Qty:</strong>
+  <%= @asset_manage.qty %>
+</p>
+
+<p>
+  <strong>Stock in number:</strong>
+  <%= @asset_manage.stock_in_number %>
+</p>
+
+<p>
+  <strong>Stock out number:</strong>
+  <%= @asset_manage.stock_out_number %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @asset_manage.unit %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @asset_manage.remarks %>
+</p>
+
+<p>
+  <strong>Seq:</strong>
+  <%= @asset_manage.seq %>
+</p>
+
+<%= link_to 'Edit', edit_asset_manage_path(@asset_manage) %> |
+<%= link_to 'Back', asset_manages_path %>

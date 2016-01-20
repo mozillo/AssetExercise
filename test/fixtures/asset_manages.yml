@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  category: MyString
+  model: MyString
+  owner_id: 1
+  producer: MyString
+  product: MyString
+  price: 9.99
+  qty: 1
+  stock_in_number: 1
+  stock_out_number: 1
+  unit: 1
+  remarks: MyText
+  seq: MyString
+
+two:
+  brand: MyString
+  category: MyString
+  model: MyString
+  owner_id: 1
+  producer: MyString
+  product: MyString
+  price: 9.99
+  qty: 1
+  stock_in_number: 1
+  stock_out_number: 1
+  unit: 1
+  remarks: MyText
+  seq: MyString

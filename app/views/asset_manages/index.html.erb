@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Asset Manages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Category</th>
+      <th>Model</th>
+      <th>Owner</th>
+      <th>Producer</th>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th>Stock in number</th>
+      <th>Stock out number</th>
+      <th>Unit</th>
+      <th>Remarks</th>
+      <th>Seq</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asset_manages.each do |asset_manage| %>
+      <tr>
+        <td><%= asset_manage.brand %></td>
+        <td><%= asset_manage.category %></td>
+        <td><%= asset_manage.model %></td>
+        <td><%= asset_manage.owner_id %></td>
+        <td><%= asset_manage.producer %></td>
+        <td><%= asset_manage.product %></td>
+        <td><%= asset_manage.price %></td>
+        <td><%= asset_manage.qty %></td>
+        <td><%= asset_manage.stock_in_number %></td>
+        <td><%= asset_manage.stock_out_number %></td>
+        <td><%= asset_manage.unit %></td>
+        <td><%= asset_manage.remarks %></td>
+        <td><%= asset_manage.seq %></td>
+        <td><%= link_to 'Show', asset_manage %></td>
+        <td><%= link_to 'Edit', edit_asset_manage_path(asset_manage) %></td>
+        <td><%= link_to 'Destroy', asset_manage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Asset manage', new_asset_manage_path %>

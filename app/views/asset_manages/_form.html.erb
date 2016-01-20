@@ -1,0 +1,23 @@
+<%= simple_form_for(@asset_manage) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :brand %>
+    <%= f.input :category %>
+    <%= f.input :model %>
+    <%= f.input :owner_id %>
+    <%= f.input :producer %>
+    <%= f.input :product %>
+    <%= f.input :price %>
+    <%= f.input :qty %>
+    <%= f.input :stock_in_number %>
+    <%= f.input :stock_out_number %>
+    <%= f.input :unit %>
+    <%= f.input :remarks %>
+    <%= f.input :seq %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
