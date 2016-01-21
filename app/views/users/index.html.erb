@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+<p>
+  <strong>Department name:</strong>
+  <%= @department.department_name %>
+</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Budget</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, department_user_path(@department, user) %></td>
+        <td><%= user.budget %></td>
+        <td><%= link_to 'Show', department_user_path(@department, user) %></td>
+        <td><%= link_to 'Edit', edit_department_user_path(@department, user) %></td>
+        <td><%= link_to 'Destroy', department_user_path(@department, user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_department_user_path %>

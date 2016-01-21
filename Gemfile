@@ -27,3 +27,4 @@ gem 'paperclip', '~> 4.3'
 gem 'simple_form'
 
 gem 'audited', '~> 4.0'
+gem 'uuidtools'

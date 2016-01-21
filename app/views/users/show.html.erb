@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dept uuid:</strong>
+  <%= @user.dept_uuid %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Uuid:</strong>
+  <%= @user.uuid %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @user.budget %>
+</p>
+
+<%= link_to 'Create Budget', edit_department_user_path(@department, @user) %> |
+<%= link_to 'Edit', edit_department_user_path(@department, @user) %> |
+<%= link_to 'Back', department_users_path %>

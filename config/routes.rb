@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
+  
+  devise_for :admins
+  resources :logs
+  
+  resources :departments do
+  	resources :users do
+  		resources :user_budgets
+  	end
+  end
+
   resources :asset_manages
 
 
-  root 'asset_manages#index'
+  root 'departments#index'
 end

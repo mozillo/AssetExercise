@@ -1,0 +1,14 @@
+<%= simple_form_for(@user_budget) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id %>
+    <%= f.input :admin_id %>
+    <%= f.input :budget_num %>
+    <%= f.input :budget_note %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

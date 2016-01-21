@@ -1,0 +1,15 @@
+<%= simple_form_for(@log) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :asset_manage_seq %>
+    <%= f.input :user_uuid %>
+    <%= f.input :admin_id %>
+    <%= f.input :action_type %>
+    <%= f.input :qty %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

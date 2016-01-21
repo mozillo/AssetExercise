@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asset manage seq</th>
+      <th>User uuid</th>
+      <th>Admin</th>
+      <th>Action type</th>
+      <th>Qty</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.asset_manage_seq %></td>
+        <td><%= log.user_uuid %></td>
+        <td><%= log.admin_id %></td>
+        <td><%= log.action_type %></td>
+        <td><%= log.qty %></td>
+        <td><%= link_to 'Show', log %></td>
+        <td><%= link_to 'Edit', edit_log_path(log) %></td>
+        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Log', new_log_path %>

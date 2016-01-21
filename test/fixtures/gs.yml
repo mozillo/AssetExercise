@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_budget: MyString
+  user_id: 1
+  admin_id: 1
+  budget_num: 1
+  budget_note: MyText
+
+two:
+  user_budget: MyString
+  user_id: 1
+  admin_id: 1
+  budget_num: 1
+  budget_note: MyText

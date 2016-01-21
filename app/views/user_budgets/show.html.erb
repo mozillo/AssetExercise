@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_budget.user_id %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @user_budget.admin_id %>
+</p>
+
+<p>
+  <strong>Budget num:</strong>
+  <%= @user_budget.budget_num %>
+</p>
+
+<p>
+  <strong>Budget note:</strong>
+  <%= @user_budget.budget_note %>
+</p>
+
+<%= link_to 'Edit', edit_user_budget_path(@user_budget) %> |
+<%= link_to 'Back', user_budgets_path %>

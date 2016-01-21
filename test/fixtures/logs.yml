@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asset_manage_seq: MyString
+  user_uuid: MyString
+  admin_id: 1
+  action_type: MyString
+  qty: 1
+
+two:
+  asset_manage_seq: MyString
+  user_uuid: MyString
+  admin_id: 1
+  action_type: MyString
+  qty: 1

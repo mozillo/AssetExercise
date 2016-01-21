@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asset manage seq:</strong>
+  <%= @log.asset_manage_seq %>
+</p>
+
+<p>
+  <strong>User uuid:</strong>
+  <%= @log.user_uuid %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @log.admin_id %>
+</p>
+
+<p>
+  <strong>Action type:</strong>
+  <%= @log.action_type %>
+</p>
+
+<p>
+  <strong>Qty:</strong>
+  <%= @log.qty %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>

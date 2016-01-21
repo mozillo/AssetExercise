@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Departments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Department name</th>
+      <th>Budget</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%=link_to department.department_name, department_path(department)%></td>
+        <td><%= department.budget %></td>
+        <td><%= link_to 'Edit', department_path(department) %></td>
+        <td><%= link_to 'Destroy', department_path(department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Department', new_department_path %>

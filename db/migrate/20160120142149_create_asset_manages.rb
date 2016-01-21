@@ -17,5 +17,7 @@ class CreateAssetManages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :asset_manages, :seq, :unique => true
   end
 end

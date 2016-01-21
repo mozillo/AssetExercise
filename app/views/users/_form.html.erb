@@ -1,0 +1,14 @@
+<%= simple_form_for(@user, :url => @user.id ? department_user_path(@department, @user) : department_users_path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :dept_uuid %>
+    <%= f.input :username %>
+    <%= f.input :uuid %>
+    <%= f.input :budget %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

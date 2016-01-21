@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120142149) do
+ActiveRecord::Schema.define(version: 20160121152831) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "asset_manages", force: :cascade do |t|
     t.string   "brand"
@@ -30,5 +48,51 @@ ActiveRecord::Schema.define(version: 20160120142149) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
+
+  add_index "asset_manages", ["seq"], name: "index_asset_manages_on_seq", unique: true
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "department_name", null: false
+    t.string   "dept_uuid",       null: false
+    t.integer  "budget"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "departments", ["dept_uuid"], name: "index_departments_on_dept_uuid", unique: true
+
+  create_table "logs", force: :cascade do |t|
+    t.string   "asset_manage_seq"
+    t.string   "user_uuid"
+    t.integer  "admin_id"
+    t.string   "action_type"
+    t.integer  "qty"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "logs", ["asset_manage_seq"], name: "index_logs_on_asset_manage_seq"
+  add_index "logs", ["user_uuid"], name: "index_logs_on_user_uuid"
+
+  create_table "user_budgets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "admin_id"
+    t.integer  "budget_num"
+    t.text     "budget_note"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "dept_uuid",  null: false
+    t.string   "username",   null: false
+    t.string   "uuid",       null: false
+    t.integer  "budget"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users", ["dept_uuid"], name: "index_users_on_dept_uuid"
+  add_index "users", ["uuid"], name: "index_users_on_uuid", unique: true
 
 end
