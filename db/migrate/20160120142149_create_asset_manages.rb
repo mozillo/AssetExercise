@@ -11,10 +11,9 @@ class CreateAssetManages < ActiveRecord::Migration
       t.integer :qty
       t.integer :stock_in_number
       t.integer :stock_out_number
-      t.integer :unit
+      t.string :unit
       t.text :remarks
       t.string :seq
-
       t.timestamps null: false
     end
 

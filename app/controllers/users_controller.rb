@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_department, only: [:index, :new, :create]
+  before_action :set_department
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where(:department => @department)
   end
 
   # GET /users/1
@@ -27,10 +27,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.department = @department
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to department_user_path(@department, @user), notice: 'User was successfully created.' }
+        format.html { redirect_to department_users_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -78,6 +79,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:dept_uuid, :username, :uuid, :budget)
+      params.require(:user).permit(:username, :budget)
     end
 end

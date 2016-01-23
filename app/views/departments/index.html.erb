@@ -1,28 +1,37 @@
+<script>
+<% js = escape_javascript(
+  render(partial: 'departments/list', locals: { departments: @departments })
+) %>
+$("#filterrific_results").html("<%= js %>");
+</script>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Departments</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Department name</th>
-      <th>Budget</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<%= form_for_filterrific @filterrific, :class => "form-horizontal" do |f| %>
+  <div class="form-group">
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed'
+    ) %>
+  </div>
 
-  <tbody>
-    <% @departments.each do |department| %>
-      <tr>
-        <td><%=link_to department.department_name, department_path(department)%></td>
-        <td><%= department.budget %></td>
-        <td><%= link_to 'Edit', department_path(department) %></td>
-        <td><%= link_to 'Destroy', department_path(department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
+<% end %>
 
-<br>
+<%= render(
+  partial: 'departments/list',
+  locals: { departments: @departments }
+) %>
 
-<%= link_to 'New Department', new_department_path %>
+<%= will_paginate @departments %>

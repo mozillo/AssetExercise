@@ -17,14 +17,20 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  #Layout generator
   gem 'rails_layout', github: 'RailsApps/rails_layout'
+  gem 'sextant'
+  gem "better_errors"
 end
-
 gem 'bootstrap-sass'
-
 gem 'devise'
 gem 'paperclip', '~> 4.3'
 gem 'simple_form'
 
 gem 'audited', '~> 4.0'
+#Generate uuid
 gem 'uuidtools'
+#Filter / Search 
+gem 'filterrific'
+#Pagginate
+gem 'will_paginate', '~> 3.0.6'

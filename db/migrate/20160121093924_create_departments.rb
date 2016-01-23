@@ -4,7 +4,6 @@ class CreateDepartments < ActiveRecord::Migration
       t.string :department_name,		null: false
       t.string :dept_uuid, 					null: false
       t.integer :budget
-
       t.timestamps null: false
     end
 

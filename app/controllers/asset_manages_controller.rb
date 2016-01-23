@@ -1,5 +1,5 @@
 class AssetManagesController < ApplicationController
-  before_action :set_asset_manage, only: [:show, :edit, :update, :destroy]
+  before_action :set_asset_manage, only: [:in, :out, :show, :edit, :update, :destroy]
 
   # GET /asset_manages
   # GET /asset_manages.json
@@ -25,7 +25,8 @@ class AssetManagesController < ApplicationController
   # POST /asset_manages.json
   def create
     @asset_manage = AssetManage.new(asset_manage_params)
-
+    @asset_manage.admin = current_admin
+    
     respond_to do |format|
       if @asset_manage.save
         format.html { redirect_to @asset_manage, notice: 'Asset manage was successfully created.' }
@@ -61,14 +62,30 @@ class AssetManagesController < ApplicationController
     end
   end
 
+  def in
+    @log = Log.new
+    @log.admin = current_admin
+    @log.action_type = 'in';
+    @log.asset_manage = @asset_manage
+  end
+
+  def out
+    @log = Log.new
+    @log.admin = current_admin
+    @log.action_type = 'out';
+    @log.asset_manage = @asset_manage
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_asset_manage
-      @asset_manage = AssetManage.find(params[:id])
+      params[:id] ? 
+        @asset_manage = AssetManage.find(params[:id]) :
+        @asset_manage = AssetManage.find_by(:seq => params[:asset_manage_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_manage_params
-      params.require(:asset_manage).permit(:brand, :category, :model, :owner_id, :producer, :product, :price, :qty, :stock_in_number, :stock_out_number, :unit, :remarks, :seq)
+      params.require(:asset_manage).permit(:brand, :category, :model, :producer, :product, :photo, :price, :qty, :stock_in_number, :stock_out_number, :unit, :remarks, :seq)
     end
 end

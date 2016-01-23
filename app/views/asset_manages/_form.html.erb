@@ -1,23 +1,30 @@
+<div class="col-md-12">
 <%= simple_form_for(@asset_manage) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :brand %>
-    <%= f.input :category %>
-    <%= f.input :model %>
-    <%= f.input :owner_id %>
-    <%= f.input :producer %>
-    <%= f.input :product %>
+  <div class="col-md-6">
+    <%= f.input :seq, :label => "序列号 Seq" %>
+    <%= f.input :category, :label => "种类 Category" %>
+    <%= f.input :product, :label => "物品名称 Product" %>
+    <%= f.input :producer, :label => "生产商 Producer" %>
+    <%= f.input :brand, :label => "品牌 Brand" %>
+    <%= f.input :model, :label => "规格型号 Model" %>
+    <%= f.input :unit, :label => "单位 Unit" %>
+  </div>
+    
+  <div class="col-md-6">
+    <%= @asset_manage.photo.size ? "<img src='#{@asset_manage.photo.url}' width=200 height=200 />".html_safe : nil %>
+    <%= f.input :photo %>
+    <%= f.input :remarks %>
     <%= f.input :price %>
     <%= f.input :qty %>
     <%= f.input :stock_in_number %>
     <%= f.input :stock_out_number %>
-    <%= f.input :unit %>
-    <%= f.input :remarks %>
-    <%= f.input :seq %>
   </div>
 
-  <div class="form-actions">
+  <div class="col-md-12">
     <%= f.button :submit %>
   </div>
+
 <% end %>
+</div>

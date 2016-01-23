@@ -1,1 +1,7 @@
-<%# add navigation links to this file %>
+<% if current_admin %>
+    <li><%= link_to('登出', destroy_admin_session_path, :method => :delete) %></li>
+    <li><%= link_to('修改密碼', edit_registration_path(:admin)) %></li>
+<% else %>
+    <li><%= link_to('註冊', new_registration_path(:admin)) %></li>
+    <li><%= link_to('登入', new_session_path(:admin)) %></li>
+<% end %>

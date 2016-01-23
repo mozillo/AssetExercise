@@ -4,7 +4,12 @@ class DepartmentsController < ApplicationController
   # GET /departments
   # GET /departments.json
   def index
-    @departments = Department.all
+
+    @filterrific = initialize_filterrific(
+      Department,
+      params[:filterrific]
+    ) or return
+    @departments = @filterrific.find.paginate(:page => params[:page])
   end
 
   # GET /departments/1

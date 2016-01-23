@@ -13,8 +13,20 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+
+      <div class="col-md-2">
+          <ul class="nav nav-sidebar affix">
+            <li><%=link_to "Settings",departments_path %></li>
+            <li><%=link_to "Assets Manages", asset_manages_path%></li>
+            <li><%=link_to "Logs" %></li>
+            <li><a href="#">Export</a></li>
+          </ul>
+      </div>
+
+      <div class="col-md-10">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>

@@ -1,6 +1,8 @@
 class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_asset_manage 
+
   # GET /logs
   # GET /logs.json
   def index
@@ -25,6 +27,10 @@ class LogsController < ApplicationController
   # POST /logs.json
   def create
     @log = Log.new(log_params)
+    @log.admin = current_admin
+    @log.asset_manage = @asset_manage;
+    
+    return render :json => @log
 
     respond_to do |format|
       if @log.save
@@ -62,6 +68,11 @@ class LogsController < ApplicationController
   end
 
   private
+
+    def set_asset_manage
+      @asset_manage = AssetManage.find_by(:seq => params[:asset_manage_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_log
       @log = Log.find(params[:id])

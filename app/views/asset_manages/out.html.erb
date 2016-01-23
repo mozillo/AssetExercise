@@ -1,8 +1,7 @@
-<%= simple_form_for(@log) do |f| %>
+<%= simple_form_for(@log, :url => asset_manage_logs_path) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :asset_manage_seq %>
     
     <%= f.input :user_uuid, 
                 :collection => 
@@ -11,8 +10,7 @@
                   ["#{k.department.department_name} - #{k.username}", k.uuid] }, prompt: "Select Staff"
     %>
 
-    <%= f.input :admin_id %>
-    <%= f.input :action_type %>
+    <%= f.input :action_type, :as => :hidden %>
     <%= f.input :qty %>
   </div>
 

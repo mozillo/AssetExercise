@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121152831) do
+ActiveRecord::Schema.define(version: 20160123102954) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,15 +38,19 @@ ActiveRecord::Schema.define(version: 20160121152831) do
     t.integer  "owner_id"
     t.string   "producer"
     t.string   "product"
-    t.decimal  "price",            precision: 8, scale: 2
+    t.decimal  "price",              precision: 8, scale: 2
     t.integer  "qty"
     t.integer  "stock_in_number"
     t.integer  "stock_out_number"
-    t.integer  "unit"
+    t.string   "unit"
     t.text     "remarks"
-    t.string   "seq"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.string   "seq",                                        null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "asset_manages", ["seq"], name: "index_asset_manages_on_seq", unique: true
@@ -55,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160121152831) do
     t.string   "department_name", null: false
     t.string   "dept_uuid",       null: false
     t.integer  "budget"
+    t.integer  "admin_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -73,15 +78,6 @@ ActiveRecord::Schema.define(version: 20160121152831) do
 
   add_index "logs", ["asset_manage_seq"], name: "index_logs_on_asset_manage_seq"
   add_index "logs", ["user_uuid"], name: "index_logs_on_user_uuid"
-
-  create_table "user_budgets", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "admin_id"
-    t.integer  "budget_num"
-    t.text     "budget_note"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "dept_uuid",  null: false
