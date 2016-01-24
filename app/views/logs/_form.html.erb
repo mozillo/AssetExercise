@@ -2,8 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :asset_manage_seq %>
-    
+      
     <%= f.input :user_uuid, 
                 :collection => 
                 User.all.map { 
@@ -11,7 +10,6 @@
                   ["#{k.department.department_name} - #{k.username}", k.uuid] }, prompt: "Select Staff"
     %>
 
-    <%= f.input :admin_id %>
     <%= f.input :action_type %>
     <%= f.input :qty %>
   </div>
