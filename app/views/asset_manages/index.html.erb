@@ -1,42 +1,37 @@
+<script>
+<% js = escape_javascript(
+  render(partial: 'asset_manages/list', locals: { asset_manages: @asset_manages })
+) %>
+$("#filterrific_results").html("<%= js %>");
+</script>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Asset Manages</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>序列号<br/>Seq</th>
-      <th>种类<br/>Category</th>
-      <th>物品名称<br/>Product</th>
-      <th>品牌<br/>Brand</th>
-      <th>规格型号<br/>Model</th>
-      <th>单价<br/>Price</th>
-      <th>库存<br/>Qty</th>
-      <th>总价<br/Total></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= form_for_filterrific @filterrific, :class => "form-horizontal" do |f| %>
+  <div class="form-group">
+    Search
+    <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed'
+    ) %>
+  </div>
 
-  <tbody>
-    <% @asset_manages.each do |asset_manage| %>
-      <tr>
-        <td><%= asset_manage.seq %></td>
-        <td><%= asset_manage.category %></td>
-        <td><%= link_to asset_manage.product, asset_manage_path(asset_manage) %></td>
-        <td><%= asset_manage.brand %></td>
-        <td><%= asset_manage.model %></td>
-        <td><%= asset_manage.price %></td>
-        <td><%= asset_manage.qty%></td>
-        <td><%= asset_manage.qty.to_i * asset_manage.price %></td>
-        <td><%= link_to '入库', asset_manage_in_path(asset_manage) %></td>
-        <td><%= link_to '出库', asset_manage_out_path(asset_manage) %></td>
-        <td><%= link_to 'Edit', edit_asset_manage_path(asset_manage) %></td>
-        <td><%= link_to 'Destroy', asset_manage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div>
+    <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
+<% end %>
 
-<br>
+<%= render(
+  partial: 'asset_manages/list',
+  locals: { asset_manages: @asset_manages }
+) %>
 
-<%= link_to 'New Asset manage', new_asset_manage_path %>
+<%= will_paginate @asset_manages %>

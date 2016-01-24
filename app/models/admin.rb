@@ -6,4 +6,5 @@ class Admin < ActiveRecord::Base
 
 
   has_many :logs
+  has_many :asset_manages
 end

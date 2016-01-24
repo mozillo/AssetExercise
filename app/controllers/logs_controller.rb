@@ -29,12 +29,20 @@ class LogsController < ApplicationController
     @log = Log.new(log_params)
     @log.admin = current_admin
     @log.asset_manage = @asset_manage;
-    
-    return render :json => @log
+
+    if @log.action_type == 'in'
+      @asset_manage.qty = @asset_manage.qty.to_i + @log.qty.to_i
+    elsif @log.action_type == 'out'
+      @asset_manage.qty = @asset_manage.qty.to_i - @log.qty.to_i
+      if @asset_manage.qty < 0 
+        @asset_manage.qty = 0
+      end
+    end
+    @asset_manage.save
 
     respond_to do |format|
       if @log.save
-        format.html { redirect_to @log, notice: 'Log was successfully created.' }
+        format.html { redirect_to  asset_manage_path(@asset_manage.id), notice: 'Log was successfully created.' }
         format.json { render :show, status: :created, location: @log }
       else
         format.html { render :new }
@@ -80,6 +88,6 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:asset_manage_seq, :user_uuid, :admin_id, :action_type, :qty)
+      params.require(:log).permit(:user_uuid, :action_type, :qty)
     end
 end

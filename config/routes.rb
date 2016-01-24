@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   
   
   resources :departments do
-  	resources :users do
-  		resources :user_budgets
-  	end
+  	resources :users
   end
 
   resources :asset_manages do
@@ -14,7 +12,8 @@ Rails.application.routes.draw do
   	get '/in' => 'asset_manages#in'
   	get '/out' => 'asset_manages#out'
   end
-
+  
+  resources :logs
 
   root 'application#index'
 end

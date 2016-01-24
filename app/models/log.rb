@@ -1,9 +1,10 @@
 class Log < ActiveRecord::Base
 	
-	belongs_to :asset_manage,
-	 					 :foreign_key => :asset_manage_seq
+	belongs_to :asset_manage, 
+						 :foreign_key => :asset_manage_seq
 
 	belongs_to :admin
-	belongs_to :user
+	belongs_to :user, 
+						 :foreign_key => :user_uuid
 
 end

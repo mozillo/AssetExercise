@@ -20,6 +20,12 @@
   <%= @user.budget %>
 </p>
 
+<p><strong>Logs: </strong></p>
+
+
+<%=render 'logs/index'%>
+
+
 <%= link_to 'Create Budget', edit_department_user_path(@department, @user) %> |
 <%= link_to 'Edit', edit_department_user_path(@department, @user) %> |
 <%= link_to 'Back', department_users_path %>

@@ -4,12 +4,18 @@ class AssetManagesController < ApplicationController
   # GET /asset_manages
   # GET /asset_manages.json
   def index
-    @asset_manages = AssetManage.all
+    @filterrific = initialize_filterrific(
+      AssetManage,
+      params[:filterrific]
+    ) or return
+    @asset_manages = @filterrific.find.paginate(:page => params[:page])
+    #@asset_manages = AssetManage.all
   end
 
   # GET /asset_manages/1
   # GET /asset_manages/1.json
   def show
+    @logs = Log.where(:asset_manage => @asset_manage)
   end
 
   # GET /asset_manages/new
