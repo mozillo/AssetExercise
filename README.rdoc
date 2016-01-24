@@ -1,25 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Now function list:
 
-Things you may want to cover:
+* 物品管理
 
-* Ruby version
+* 部门管理
 
-* System dependencies
+* 人员管理
 
-* Configuration
+* 管理员操作
 
-* Database creation
+* 入库/出库日志
 
-* Database initialization
+* 入库出库时候 物品Qty操作
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* 销毁入库出库 恢复此前Qty操作
 
 * ...
 
