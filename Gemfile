@@ -15,6 +15,7 @@ group :development, :test do
 end
 
 group :development do
+	gem 'rspec-rails', '~> 3.0'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   #Layout generator
