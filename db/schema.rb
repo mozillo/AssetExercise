@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160123102954) do
     t.integer  "stock_out_number"
     t.string   "unit"
     t.text     "remarks"
-    t.string   "seq",                                        null: false
+    t.string   "seq"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.string   "photo_file_name"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20160123102954) do
     t.string   "department_name", null: false
     t.string   "dept_uuid",       null: false
     t.integer  "budget"
-    t.integer  "admin_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

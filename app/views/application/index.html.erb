@@ -1,1 +1,11 @@
 <h3>Hello world</h3>
+
+<% @sheets.rows.each do |row| %>
+	
+	<% row.each do |key, value| %>
+		
+		<p><%=key%> | <%=value%></p>
+
+	<% end %>
+
+<% end %>

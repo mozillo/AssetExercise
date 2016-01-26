@@ -25,7 +25,7 @@
         <td><%= asset_manage.model %></td>
         <td><%= asset_manage.price %></td>
         <td><%= asset_manage.qty%></td>
-        <td><%= asset_manage.qty.to_i * asset_manage.price %></td>
+        <td><%= asset_manage.qty && asset_manage.price ? (asset_manage.qty.to_i * asset_manage.price) : 0 %></td>
         <td><%= link_to '入库', asset_manage_in_path(asset_manage) %></td>
         <td><%= link_to '出库', asset_manage_out_path(asset_manage) %></td>
         <td><%= link_to 'Edit', edit_asset_manage_path(asset_manage) %></td>

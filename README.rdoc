@@ -18,6 +18,8 @@ Now function list:
 
 * ...
 
+Todos: 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* 每个部门每位老师在一学期里每种文具的领用总量和总价
+
+* 每种文具每学期里按照部门的领用总量和总价

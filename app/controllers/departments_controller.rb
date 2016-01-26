@@ -15,6 +15,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
+    @users = User.where(:dept_uuid => @department.dept_uuid)
   end
 
   # GET /departments/new

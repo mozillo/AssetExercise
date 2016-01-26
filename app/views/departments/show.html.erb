@@ -14,6 +14,8 @@
   <strong>Budget:</strong>
   <%= @department.budget %>
 </p>
-<%= link_to 'List Users ( Current Department )', department_users_path(@department.dept_uuid) %> |
+
+
+<%= render 'users/index' %>
 <%= link_to 'Edit', edit_department_path(@department.dept_uuid) %> |
 <%= link_to 'Back', departments_path %>
