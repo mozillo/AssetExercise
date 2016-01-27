@@ -17,9 +17,9 @@
   <tbody>
     <% @logs.each do |log| %>
       <tr>
-        <td><%= link_to log.asset_manage.product, asset_manage_path(log.asset_manage) %></td>
+        <td><%= log.asset_manage ? link_to(log.asset_manage.product, asset_manage_path(log.asset_manage)) : nil %></td>
         <td><%= log.user ? link_to(log.user.username, department_user_path(log.user.department, log.user)) : nil %></td>
-        <td><%= log.admin.email %></td>
+        <td><%= log.admin ? log.admin.email : nil %></td>
         <td><%= log.action_type == 'in' ? 
                 "<span class='label label-success'>入库</span>".html_safe : 
                 "<span class='label label-danger'>出库</span>".html_safe %></td>
@@ -34,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Log', new_log_path %>
+<p><%= link_to 'New Log', new_log_path %></p>
+
+<%= will_paginate @logs %>

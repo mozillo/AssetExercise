@@ -2,6 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :dept_uuid, 
+                :collection => 
+                Department.all.map { 
+                  |k,v| 
+                  ["#{k.department_name}", k.dept_uuid] }, prompt: "Select Staff"
+    %>
     <%= f.input :username %>
     <%= f.input :budget %>
   </div>

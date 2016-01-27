@@ -33,4 +33,6 @@ class AssetManage < ActiveRecord::Base
 	
 	has_many :logs
 
+	#validates :seq, :precense => true
+
 end

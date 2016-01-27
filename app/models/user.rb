@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 						 
 	has_many :asset_manages, :foreign_key => :owner_id
 
+	has_many :logs, :foreign_key => :user_uuid, :primary_key => :uuid
+
 	before_create :before_create
 	
 	protected

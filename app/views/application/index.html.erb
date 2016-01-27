@@ -1,11 +1,26 @@
-<h3>Hello world</h3>
+<h4>导出操作</h4>
 
-<% @sheets.rows.each do |row| %>
-	
-	<% row.each do |key, value| %>
-		
-		<p><%=key%> | <%=value%></p>
+<table class="table">
+<tr>
+	<td>姓名</td>
+	<td>文具名</td>
+	<td>文具序列号</td>
+	<td>数量</td>
+	<td>单价</td>
+	<td>总价</td>
+</tr>
+<% @users.each do |user| %>
 
-	<% end %>
+		<% user.logs.each_with_index do |log, key| %>
+		<tr>
+			<td><%= key == 0 ? user.username : nil %></td>
+			<td><%=log.asset_manage ? log.asset_manage.product : nil %></td>
+			<td><%=log.asset_manage_seq%></td>
+			<td><%=log.qty%></td>
+			<td><%=log.asset_manage ? log.asset_manage.price : nil %></td>
+			<td><%=log.asset_manage ? log.asset_manage.price * log.qty : nil %></td>
+		</tr>
+		<% end %>
 
 <% end %>
+</table>

@@ -7,7 +7,11 @@
         >物品信息</a>
     </li>
     <li role="presentation" class="">
-      <a href="#profile" id="profile-tab" role="tab" data-toggle="tab" aria-controls="profile" aria-expanded="false"> 物品记录
+      <a href="#log" id="log-tab" role="tab" data-toggle="tab" aria-controls="log" aria-expanded="false"> 物品记录
+      </a>
+    </li>
+    <li role="presentation" class="">
+      <a href="#statistic" id="statistic-tab" role="tab" data-toggle="tab" aria-controls="statistic" aria-expanded="false"> 统计
       </a>
     </li>
   </ul>
@@ -86,8 +90,11 @@
       </p>
 
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-    <%=render 'logs/index'%>
+    <div role="tabpanel" class="tab-pane fade" id="log" aria-labelledby="log-tab">
+      <%=render 'logs/index'%>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="statistic" aria-labelledby="statistic-tab">
+      
     </div>
   </div>
 

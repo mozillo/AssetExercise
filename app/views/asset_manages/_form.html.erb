@@ -14,12 +14,9 @@
     
   <div class="col-md-6">
     <%= @asset_manage.photo.size ? "<img src='#{@asset_manage.photo.url}' width=200 height=200 />".html_safe : nil %>
-    <%= f.input :photo %>
-    <%= f.input :remarks %>
-    <%= f.input :price %>
-    <%= f.input :qty %>
-    <%= f.input :stock_in_number %>
-    <%= f.input :stock_out_number %>
+    <%= f.input :photo, :label => "图片 Picture" %>
+    <%= f.input :remarks, :label => "备注 Remarks" %>
+    <%= f.input :price, :label => "单价 Price" %>
   </div>
 
   <div class="col-md-12">
