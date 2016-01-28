@@ -37,4 +37,4 @@ gem 'filterrific'
 gem 'will_paginate', '~> 3.0.6'
 gem "creek"
 gem "chartkick"
-gem 'to_xls-rails'
+gem 'axlsx_rails'
