@@ -31,7 +31,9 @@ class AssetManage < ActiveRecord::Base
 	belongs_to :admin,	
 						 :foreign_key => :owner_id
 	
-	has_many :logs
+	has_many :logs, 
+  				 :primary_key => :seq, 
+  				 :foreign_key => :asset_manage_seq 
 
 	#validates :seq, :precense => true
 

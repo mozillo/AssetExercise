@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th><%=filterrific_sorting_link(@filterrific, :department_name)%></th>
+      <th>Admin<br/>部门管理员</th>
       <th>Budget</th>
       <th colspan="2"></th>
     </tr>
@@ -11,6 +12,7 @@
     <% departments.each do |department| %>
       <tr>
         <td><%=link_to department.department_name, department_path(department)%></td>
+        <td><%= department.admin ? department.admin.email : nil %></td>
         <td><%= department.budget %></td>
         <td><%= link_to 'Edit', department_path(department) %></td>
         <td><%= link_to 'Destroy', department_path(department), method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -60,6 +60,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.1)
+    chartkick (1.4.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -222,6 +223,7 @@ DEPENDENCIES
   better_errors
   bootstrap-sass
   byebug
+  chartkick
   creek
   devise
   filterrific

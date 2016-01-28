@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 
+
+
   <ul id="myTabs" class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
       <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"
@@ -94,9 +96,22 @@
       <%=render 'logs/index'%>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="statistic" aria-labelledby="statistic-tab">
-      
+      <%= column_chart @graph, discrete: true %>
+
+
+
+      <table class="table">
+        <tr><th>学部</th><th>出库数</th></tr>
+        <% @graph.each do |column| %>
+          <tr>
+            <td><%=column[0]%></td> <td><%=column[1]%></td>
+          </tr>
+        <% end %>
+      </table>
+
     </div>
   </div>
 
 <%= link_to 'Edit', edit_asset_manage_path(@asset_manage) %> |
 <%= link_to 'Back', asset_manages_path %>
+

@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<% if @forbidden == true %>
+  
+  <h5>你当前没有权限管理这个部分</h5>
+  
+<% else %>
 <p>
   <strong>Department name:</strong>
   <%= @department.department_name %>
@@ -19,3 +23,4 @@
 <%= render 'users/index' %>
 <%= link_to 'Edit', edit_department_path(@department.dept_uuid) %> |
 <%= link_to 'Back', departments_path %>
+<% end %>

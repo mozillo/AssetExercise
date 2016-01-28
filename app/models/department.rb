@@ -24,7 +24,8 @@ class Department < ActiveRecord::Base
 	  end
 	}
 	
-	has_many :user, :foreign_key => :dept_uuid
+	has_many :user, :primary_key => :dept_uuid, :foreign_key => :dept_uuid
+	belongs_to :admin
 	before_create :before_create
 	
 	protected

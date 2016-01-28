@@ -35,6 +35,6 @@ gem 'uuidtools'
 gem 'filterrific'
 #Pagginate
 gem 'will_paginate', '~> 3.0.6'
-
-
 gem "creek"
+gem "chartkick"
+gem 'to_xls-rails'

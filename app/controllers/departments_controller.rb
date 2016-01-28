@@ -16,6 +16,9 @@ class DepartmentsController < ApplicationController
   # GET /departments/1.json
   def show
     @users = User.where(:dept_uuid => @department.dept_uuid)
+
+    @forbidden = (@department.admin_id != current_admin.id)
+
   end
 
   # GET /departments/new
@@ -31,6 +34,7 @@ class DepartmentsController < ApplicationController
   # POST /departments.json
   def create
     @department = Department.new(department_params)
+    @department.admin_id = current_admin.id
 
     respond_to do |format|
       if @department.save

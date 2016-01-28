@@ -16,6 +16,15 @@ class AssetManagesController < ApplicationController
   # GET /asset_manages/1.json
   def show
     @logs = Log.where(:asset_manage => @asset_manage)
+    @graph = Hash.new
+    @logs.each do |log|
+      next if log.user == nil
+      next if log.action_type == 'in'
+      if @graph[log.user.department.department_name] == nil
+        @graph[log.user.department.department_name] = 0
+      end
+      @graph[log.user.department.department_name] = @graph[log.user.department.department_name] + log.qty
+    end
   end
 
   # GET /asset_manages/new

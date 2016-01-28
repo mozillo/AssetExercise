@@ -5,6 +5,7 @@ class Log < ActiveRecord::Base
 	belongs_to :user, :foreign_key => :user_uuid, :primary_key => :uuid
 	
 	belongs_to :asset_manage, 
+						 :primary_key => :seq,
 						 :foreign_key => :asset_manage_seq
 
 	belongs_to :admin
