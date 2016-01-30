@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Asset manage seq</th>
-      <th>User uuid</th>
+      <th>User</th>
       <th>Admin</th>
       <th>Action type</th>
       <th>Qty</th>
@@ -17,12 +17,9 @@
       <tr>
         <td><%= link_to log.asset_manage.product, asset_manage_path(log.asset_manage) %></td>
         <td><%= log.user ? link_to(log.user.username, department_user_path(log.user.department, log.user)) : nil %></td>
-        <td><%= log.admin ? log.admin.email : nil %></td>
+        <td><%= log.admin.name %></td>
         <td><%= log.action_type %></td>
         <td><%= log.qty %></td>
-        <td><%= link_to 'Show', log %></td>
-        <td><%= link_to 'Edit', edit_log_path(log) %></td>
-        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

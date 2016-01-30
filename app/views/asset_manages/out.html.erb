@@ -1,20 +1,26 @@
-<%= simple_form_for(@log, :url => asset_manage_logs_path) do |f| %>
-  <%= f.error_notification %>
+<% if @log.action_type === 'out' && @asset_manage.qty == 0 %>
+  <p>库存不足，无法出库</p>
+<% else %>
 
-  <div class="form-inputs">
-    
-    <%= f.input :user_uuid, 
-                :collection => 
-                User.all.map { 
-                  |k,v| 
-                  ["#{k.department.department_name} - #{k.username}", k.uuid] }, prompt: "Select Staff"
-    %>
+  <%= simple_form_for(@log, :url => asset_manage_logs_path) do |f| %>
+    <%= f.error_notification %>
 
-    <%= f.input :action_type, :as => :hidden %>
-    <%= f.input :qty %>
-  </div>
+    <div class="form-inputs">
+      
+      <%= f.input :user_uuid, 
+                  :collection => 
+                  User.all.map { 
+                    |k,v| 
+                    ["#{k.department.department_name} - #{k.username}", k.uuid] }, prompt: "Select Staff"
+      %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+      <%= f.input :action_type, :as => :hidden %>
+      <%= f.input :qty %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
 <% end %>

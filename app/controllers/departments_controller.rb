@@ -4,12 +4,21 @@ class DepartmentsController < ApplicationController
   # GET /departments
   # GET /departments.json
   def index
+    
+    if current_admin.is_master
+      @filterrific = initialize_filterrific(
+        Department,
+        params[:filterrific]
+      ) or return
+      @departments = @filterrific.find.paginate(:page => params[:page])
+    else
+      @filterrific = initialize_filterrific(
+        Department,
+        params[:filterrific]
+      ) or return
+      @departments = @filterrific.find.where(:admin => current_admin).paginate(:page => params[:page])
+    end
 
-    @filterrific = initialize_filterrific(
-      Department,
-      params[:filterrific]
-    ) or return
-    @departments = @filterrific.find.paginate(:page => params[:page])
   end
 
   # GET /departments/1

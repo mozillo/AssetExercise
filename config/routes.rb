@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :groups
+  resources :user_groups
   devise_for :admins
   
   
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   
   resources :logs
 
+  get '/dashboard' => 'application#dashboard'
   get '/export_table_1' => 'application#export_table_1'
   get '/export_table_2' => 'application#export_table_2'
   root 'application#index'

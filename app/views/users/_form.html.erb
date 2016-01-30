@@ -6,8 +6,9 @@
                 :collection => 
                 Department.all.map { 
                   |k,v| 
-                  ["#{k.department_name}", k.dept_uuid] }, prompt: "Select Staff"
+                  ["#{k.department_name}", k.dept_uuid] }, prompt: "所在学部"
     %>
+    <%= f.input :group_id, :collection => Group.all.map { |k, v| ["#{k.group_name}", k.id] }, prompt: "所在员工部门"  %>
     <%= f.input :username %>
     <%= f.input :budget %>
   </div>

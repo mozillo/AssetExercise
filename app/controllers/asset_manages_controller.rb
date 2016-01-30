@@ -85,6 +85,10 @@ class AssetManagesController < ApplicationController
   end
 
   def out
+    if @asset_manage.qty === nil
+      @asset_manage.qty = 0
+    end
+
     @log = Log.new
     @log.admin = current_admin
     @log.action_type = 'out';

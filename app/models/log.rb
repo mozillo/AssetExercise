@@ -12,13 +12,7 @@ class Log < ActiveRecord::Base
 	
 	after_destroy :restore_qty
 
-
 	def restore_qty
-
-		if AssetManage.find_by(:seq => self.asset_manage_seq).size == 0
-			return 
-		end
-
 		asset_manage = self.asset_manage
 		if self.action_type == 'in'
 			asset_manage.qty = asset_manage.qty.to_i - self.qty

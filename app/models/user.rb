@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
 	has_many :logs, :foreign_key => :user_uuid, :primary_key => :uuid
 
+	belongs_to :group
+
 	before_create :before_create
 	
 	protected

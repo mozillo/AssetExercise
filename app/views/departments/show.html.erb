@@ -1,26 +1,15 @@
 <p id="notice"><%= notice %></p>
 <% if @forbidden == true %>
   
-  <h5>你当前没有权限管理这个部分</h5>
+<h4>你当前没有权限管理这个部分!</h4>
   
 <% else %>
-<p>
-  <strong>Department name:</strong>
-  <%= @department.department_name %>
-</p>
 
-<p>
-  <strong>Dept uuid:</strong>
-  <%= @department.dept_uuid %>
-</p>
-
-<p>
-  <strong>Budget:</strong>
-  <%= @department.budget %>
-</p>
+<h2><%= @department.department_name %> - 所有员工</h2>
 
 
 <%= render 'users/index' %>
+
 <%= link_to 'Edit', edit_department_path(@department.dept_uuid) %> |
 <%= link_to 'Back', departments_path %>
 <% end %>

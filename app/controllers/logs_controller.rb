@@ -55,8 +55,21 @@ class LogsController < ApplicationController
   # PATCH/PUT /logs/1.json
   def update
     respond_to do |format|
+      
+      @log.restore_qty
+
+      if @log.action_type == 'in'
+        @asset_manage.qty = @asset_manage.qty.to_i + @log.qty.to_i
+      elsif @log.action_type == 'out'
+        @asset_manage.qty = @asset_manage.qty.to_i - @log.qty.to_i
+        if @asset_manage.qty < 0 
+          @asset_manage.qty = 0
+        end
+      end
+      @asset_manage.save
+    
       if @log.update(log_params)
-        format.html { redirect_to @log, notice: 'Log was successfully updated.' }
+        format.html { redirect_to asset_manage_path(@asset_manage.id), notice: 'Log was successfully updated.' }
         format.json { render :show, status: :ok, location: @log }
       else
         format.html { render :edit }
