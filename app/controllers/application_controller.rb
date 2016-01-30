@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
   	@userCount = User.all.count
     @users = User.all.count
 
+    @logs = Log.where(:action_type => 'out')
+    @logToDepartment = {}
+    @logs.each do |log|
+    	if @logToDepartment[log.user.department.department_name] == nil
+    		@logToDepartment[log.user.department.department_name] = 0
+    	end
+    	@logToDepartment[log.user.department.department_name] += log.qty.to_i
+    end
+
+
     @c1 = {"总出库次数" => @logOutCount, "总入库次数" => @logInCount}
   end
 

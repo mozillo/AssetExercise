@@ -19,6 +19,24 @@
 
 <%= pie_chart @c1, discrete: true %>
 
+
+<h5>部门出库比例</h5>
+
+<table class="table">
+	<tr>
+		<td>部门</td>
+		<td>出库Qty</td>
+	</tr>
+	<% @logToDepartment.each_with_index do |v , k| %>
+	<tr>
+		<td><%= v[0] %></td>
+		<td><%= v[1]%></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= pie_chart @logToDepartment, discrete: true %>
+
 <h4>导出</h4>
 
 <%=link_to "导出表1", export_table_1_path	%>
