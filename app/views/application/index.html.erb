@@ -1,26 +1,27 @@
-<h4>导出操作</h4>
+<h4>统计</h4>
 
 <table class="table">
+
 <tr>
-	<td>姓名</td>
-	<td>文具名</td>
-	<td>文具序列号</td>
-	<td>数量</td>
-	<td>单价</td>
-	<td>总价</td>
+	<th>总出库数量</th>
+	<th>总入库数量</th>
+	<th>总员工数</th>
 </tr>
-<% @users.each do |user| %>
 
-		<% user.logs.each_with_index do |log, key| %>
-		<tr>
-			<td><%= key == 0 ? user.username : nil %></td>
-			<td><%=log.asset_manage ? log.asset_manage.product : nil %></td>
-			<td><%=log.asset_manage_seq%></td>
-			<td><%=log.qty%></td>
-			<td><%=log.asset_manage ? log.asset_manage.price : nil %></td>
-			<td><%=log.asset_manage ? log.asset_manage.price * log.qty : nil %></td>
-		</tr>
-		<% end %>
-
-<% end %>
+<tr>
+	<td><%=@logOutCount%></td>
+	<td><%=@logInCount%></td>
+	<td><%=@userCount%></td>
+</tr>
 </table>
+
+<h5>比例</h5>
+
+<%= pie_chart @c1, discrete: true %>
+
+<h4>导出</h4>
+
+<%=link_to "导出表1", export_table_1_path	%>
+<%=link_to "导出表2", export_table_2_path	%>
+
+

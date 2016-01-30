@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   
   resources :logs
 
+  get '/export_table_1' => 'application#export_table_1'
+  get '/export_table_2' => 'application#export_table_2'
   root 'application#index'
 end

@@ -1,0 +1,26 @@
+xlsx_package = Axlsx::Package.new
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "staff_out") do |sheet|
+  @users.each do |user|
+  	user.logs.each_with_index do |log, key|
+  		if key === 0
+  			sheet.add_row [
+  				user.username, 
+  				log.asset_manage ? log.asset_manage.product : " ", 
+  				log.asset_manage_seq, 
+  				log.asset_manage ? log.asset_manage.price : " ", 
+  				log.asset_manage ? log.asset_manage.price * log.qty : " "
+  			]
+  		else
+  			sheet.add_row [
+  				" ", 
+  				log.asset_manage ? log.asset_manage.product : " ", 
+  				log.asset_manage_seq, 
+  				log.asset_manage ? log.asset_manage.price : " ", 
+  				log.asset_manage ? log.asset_manage.price * log.qty : " "
+  			]
+  		end
+  		
+  	end
+  end
+end
