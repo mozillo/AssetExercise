@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-gem 'sqlite3'
+
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -15,6 +15,7 @@ group :development, :test do
 end
 
 group :development do
+	gem 'sqlite3'
 	gem 'rspec-rails', '~> 3.0'
   gem 'web-console', '~> 2.0'
   gem 'spring'
@@ -23,6 +24,11 @@ group :development do
   gem 'sextant'
   gem "better_errors"
 end
+
+group :production do
+	gem 'mysql2'
+end
+
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'paperclip', '~> 4.3'
