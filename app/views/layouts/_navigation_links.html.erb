@@ -1,4 +1,5 @@
 <% if current_admin %>
+		<% if current_admin.is_master %><li><%= link_to "当前为超级管理员" %></li><% end %>
     <li><%= link_to('登出', destroy_admin_session_path, :method => :delete) %></li>
     <li><%= link_to('修改密碼', edit_registration_path(:admin)) %></li>
 <% else %>

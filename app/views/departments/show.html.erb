@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% if @forbidden == true %>
+<% if @forbidden == true && current_admin.is_master === false %>
   
 <h4>你当前没有权限管理这个部分!</h4>
   

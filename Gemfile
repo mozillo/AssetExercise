@@ -39,4 +39,5 @@ gem "creek"
 gem "chartkick"
 gem "axlsx_rails", ">=0.4"
 gem 'axlsx', '2.1.0.pre'
+gem "select2-rails"
 gem 'zip-zip'

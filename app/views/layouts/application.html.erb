@@ -33,5 +33,11 @@
     </main>
 
     <%= yield :charts_js %>
+
+    <script>
+      $("select").select2({
+          theme: "bootstrap"
+      });
+    </script>
   </body>
 </html>
