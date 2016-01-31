@@ -118,7 +118,6 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
-    mysql2 (0.4.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
@@ -128,6 +127,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pg (0.18.4)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -244,8 +244,8 @@ DEPENDENCIES
   filterrific
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2
   paperclip (~> 4.3)
+  pg
   rails (= 4.2.5)
   rails_layout!
   rspec-rails (~> 3.0)
