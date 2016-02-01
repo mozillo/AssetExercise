@@ -1,3 +1,10 @@
+development:
+  adapter: postgresql
+  host: ec2-54-225-195-249.compute-1.amazonaws.com
+  database: dck5d56bquiai1
+  username: xdnrysmkfrbeah
+  database: py0OcYedXBDZxpeNm-u8Ka_dAw
+
 production:
   adapter: postgresql
   host: ec2-54-225-195-249.compute-1.amazonaws.com
